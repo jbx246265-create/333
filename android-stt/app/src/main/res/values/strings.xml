@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">大字语音转文字</string>
+    <string name="start_listen">开始听</string>
+    <string name="stop_listen">停止听</string>
+    <string name="clear">清空</string>
+    <string name="fullscreen">全屏</string>
+    <string name="language">语言</string>
+    <string name="font_size">字号</string>
+    <string name="auto_scroll">自动滚动</string>
+    <string name="dark_mode">深色模式</string>
+    <string name="permission_mic_needed">请允许麦克风权限后再试</string>
+    <string name="double_tap_fullscreen">提示：双击空白切换全屏</string>
+    <string name="tap_start">点开始并允许麦克风</string>
+    <string name="language_zh_cn">中文(普通话)</string>
+    <string name="language_zh_tw">中文(繁體)</string>
+    <string name="language_yue_hk">中文(粤语)</string>
+    <string name="language_en_us">English (US)</string>
+    <string name="language_ja_jp">日本語</string>
+</resources>
+

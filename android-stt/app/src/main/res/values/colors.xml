@@ -1,0 +1,14 @@
+<resources>
+    <color name="md_bg">#FFFFFF</color>
+    <color name="md_fg">#111111</color>
+    <color name="md_panel">#F3F4F6</color>
+    <color name="md_accent">#2563EB</color>
+    <color name="md_muted">#6B7280</color>
+
+    <color name="md_bg_dark">#0B0F14</color>
+    <color name="md_fg_dark">#E5E7EB</color>
+    <color name="md_panel_dark">#111827</color>
+    <color name="md_accent_dark">#60A5FA</color>
+    <color name="md_muted_dark">#9CA3AF</color>
+</resources>
+
