@@ -95,3 +95,4 @@ jobs:
           name: ${{ steps.release_meta.outputs.name }}
           draft: false
           prerelease: ${{ inputs.prerelease }}
+
