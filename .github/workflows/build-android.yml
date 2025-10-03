@@ -62,6 +62,21 @@ jobs:
           name: elder-stt-debug-apk
           path: android-stt/app/build/outputs/apk/debug/app-debug.apk
 
+      - name: Resolve release metadata
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        id: release_meta
+        run: |
+          TAG="${{ inputs.tag_name }}"
+          NAME="${{ inputs.release_name }}"
+          if [ -z "$TAG" ]; then
+            TAG="debug-${{ github.run_number }}"
+          fi
+          if [ -z "$NAME" ]; then
+            NAME="Elder STT Debug Build #${{ github.run_number }}"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub Release from tag
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
@@ -76,7 +91,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: android-stt/app/build/outputs/apk/debug/app-debug.apk
-          tag_name: ${{ inputs.tag_name != '' && inputs.tag_name || format('debug-{0}', github.run_number) }}
-          name: ${{ inputs.release_name != '' && inputs.release_name || format('Elder STT Debug Build #{0}', github.run_number) }}
+          tag_name: ${{ steps.release_meta.outputs.tag }}
+          name: ${{ steps.release_meta.outputs.name }}
           draft: false
           prerelease: ${{ inputs.prerelease }}
