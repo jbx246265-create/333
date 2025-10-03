@@ -11,11 +11,9 @@ on:
       tag_name:
         description: 'Release tag (used when make_release=true)'
         required: false
-        default: 'debug-${{ github.run_number }}'
       release_name:
         description: 'Release name (used when make_release=true)'
         required: false
-        default: 'Elder STT Debug Build #${{ github.run_number }}'
       prerelease:
         description: 'Mark release as prerelease'
         required: false
@@ -78,7 +76,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: android-stt/app/build/outputs/apk/debug/app-debug.apk
-          tag_name: ${{ inputs.tag_name }}
-          name: ${{ inputs.release_name }}
+          tag_name: ${{ inputs.tag_name != '' && inputs.tag_name || format('debug-{0}', github.run_number) }}
+          name: ${{ inputs.release_name != '' && inputs.release_name || format('Elder STT Debug Build #{0}', github.run_number) }}
           draft: false
           prerelease: ${{ inputs.prerelease }}
